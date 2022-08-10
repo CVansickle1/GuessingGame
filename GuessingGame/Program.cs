@@ -10,32 +10,15 @@ namespace GuessingGame
 
             Console.WriteLine("Hello! \nWould you like to play a Guessing Game?\nPlease use y/n");
 
-            while (true)
-            {
-                string ans = Console.ReadLine();
-                if (ans != null && (ans == "y" || ans == "yes"))
-                {
-                    participate = true;
-                    break;
-                }
-                else if (ans != null && (ans == "n" || ans == "no"))
-                {
-                    participate = false;
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Only y or n Allowed");
-                }
-            }
+            participate = Method.Participate(Console.ReadLine());
 
-            if (participate)
+            while (participate)
             {
                 Console.WriteLine("Great! Im thinking of a number 1 - 100");
                 Console.WriteLine("What number am I thinking of?");
                 bool nullCheck;
                 var r = new Random();
-                var favNumber = r.Next(1, 100);
+                var favNumber = r.Next(1, 5);
                 int userInput;
                 nullCheck = int.TryParse(Console.ReadLine(), out userInput);
                 
@@ -45,13 +28,13 @@ namespace GuessingGame
                     nullCheck = int.TryParse(Console.ReadLine(), out userInput);
                 }
 
-                while (userInput != favNumber)
+                while (favNumber != userInput)
                 {
                     if (userInput > favNumber)
                     {
                         Console.WriteLine("Too High! Try again!");
                         nullCheck = int.TryParse(Console.ReadLine(), out userInput);
-                        
+
                         while (!nullCheck)
                         {
                             Console.WriteLine("Please enter your guess");
@@ -64,7 +47,7 @@ namespace GuessingGame
                     {
                         Console.WriteLine("Too Low! Try again!");
                         nullCheck = int.TryParse(Console.ReadLine(), out userInput);
-                        
+
                         while (!nullCheck)
                         {
                             Console.WriteLine("Please enter your guess");
@@ -77,14 +60,20 @@ namespace GuessingGame
                     {
                         break;
                     }
-                }
 
-                Console.WriteLine("WOW GREAT JOB!! YOU GUESSED IT!");
+                   
+                }
+                    Console.WriteLine("WOW GREAT JOB!! YOU GUESSED IT!");
+                    Console.WriteLine("Do you want to play again? Please use y/n");
+                    participate = Method.Participate(Console.ReadLine());
             }
-            else
+            while (!participate)
             {
                 Console.WriteLine("Aw Alright! See you next time!");
+                break;
             }
+                
+                
 
 
         }
