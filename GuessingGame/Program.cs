@@ -51,22 +51,26 @@ namespace GuessingGame
                     {
                         Console.WriteLine("Too High! Try again!");
                         nullCheck = int.TryParse(Console.ReadLine(), out userInput);
+                        
                         while (!nullCheck)
                         {
                             Console.WriteLine("Please enter your guess");
                             nullCheck = int.TryParse(Console.ReadLine(), out userInput);
                         }
+
                     }
 
                     else if (userInput < favNumber)
                     {
                         Console.WriteLine("Too Low! Try again!");
                         nullCheck = int.TryParse(Console.ReadLine(), out userInput);
+                        
                         while (!nullCheck)
                         {
                             Console.WriteLine("Please enter your guess");
                             nullCheck = int.TryParse(Console.ReadLine(), out userInput);
                         }
+
                     }
 
                     else
