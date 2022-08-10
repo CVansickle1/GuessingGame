@@ -24,6 +24,7 @@ namespace GuessingGame
                 else
                 {
                     Console.WriteLine("Only y or n Allowed");
+                    ans = Console.ReadLine();
                 }
             }
         }

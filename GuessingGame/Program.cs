@@ -18,7 +18,7 @@ namespace GuessingGame
                 Console.WriteLine("What number am I thinking of?");
                 bool nullCheck;
                 var r = new Random();
-                var favNumber = r.Next(1, 5);
+                var favNumber = r.Next(1, 100);
                 int userInput;
                 nullCheck = int.TryParse(Console.ReadLine(), out userInput);
                 
@@ -72,10 +72,6 @@ namespace GuessingGame
                 Console.WriteLine("Aw Alright! See you next time!");
                 break;
             }
-                
-                
-
-
         }
     }
 }
